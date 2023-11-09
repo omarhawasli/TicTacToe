@@ -3,31 +3,21 @@ package MyApp.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
-import javafx.stage.Popup;
 
 
 public class TicTacToeController {
 
-    boolean turn;
-    private int count = 0;
-    private int player1 = 0;
-    private int player2 = 0;
-
-    public boolean win;
+    boolean turn, win;
+    private int count = 0 , player1 = 0 , player2 = 0;
 
     @FXML
-    Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9;
-
-    @FXML
-    Button resetBtn;
+    Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,resetBtn;
 
     @FXML
     Label labelPlayer1,labelPlayer2,labelNoWin;
-
 
 
     public void initialize(){
@@ -40,9 +30,9 @@ public class TicTacToeController {
         Button button = (Button) actionEvent.getSource();
         button.setFont(Font.font("verdana",40));
         if(turn){
-            button.setText("X");
-        }else{
             button.setText("O");
+        }else{
+            button.setText("X");
         }
 
         button.setDisable(true);
@@ -50,6 +40,7 @@ public class TicTacToeController {
         button.setStyle("-fx-opacity: 1");
         count++;
 
+        button.requestFocus();
         checkWinner();
 
     }
@@ -88,8 +79,8 @@ public class TicTacToeController {
         if(btn1.getText() == btn5.getText() && btn5.getText() == btn9.getText() && btn1.isDisabled()){
             setStyle(btn1,btn5,btn9);
             win = true;
-        }else if(btn3.getText() == btn5.getText() && btn5.getText() == btn9.getText() && btn3.isDisabled()){
-            setStyle(btn2,btn5,btn9);
+        }else if(btn3.getText() == btn5.getText() && btn5.getText() == btn7.getText() && btn3.isDisabled()){
+            setStyle(btn3,btn5,btn7);
             win = true;
         }
 
@@ -97,9 +88,9 @@ public class TicTacToeController {
             String winner = "";
 
             if(turn){
-                winner = "O";
-            }else{
                 winner = "X";
+            }else{
+                winner = "O";
             }
 
             disableButtons();
@@ -123,7 +114,8 @@ public class TicTacToeController {
 
                 }
 
-                labelNoWin.setText("No one is Winner");
+                labelNoWin.setText("No Winner");
+                labelNoWin.setStyle("fx-color: red");
 
             }
         }
@@ -142,7 +134,7 @@ public class TicTacToeController {
 
 
     public void onButtonResetClick(){
-        turn = true;
+        turn = false;
         win = false;
         count = 0;
 
@@ -153,6 +145,8 @@ public class TicTacToeController {
             b.setText(" ");
             b.setStyle(null);
         }
+
+        labelNoWin.setText(" ");
     }
 
 

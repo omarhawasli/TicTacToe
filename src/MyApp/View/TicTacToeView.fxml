@@ -34,7 +34,7 @@
             </children>
         </GridPane>
         <Button fx:id="resetBtn" layoutX="664.0" layoutY="638.0" mnemonicParsing="false" onAction="#onButtonResetClick" prefHeight="40.0" prefWidth="87.0" text="Reset" />
-        <Label fx:id="labelPlayer1" layoutX="136.0" layoutY="128.0" text="Player1: ">
+        <Label fx:id="labelPlayer1" layoutX="158.0" layoutY="128.0" text="Player1: ">
             <font>
                 <Font size="18.0" />
             </font></Label>
@@ -42,7 +42,10 @@
             <font>
                 <Font size="18.0" />
             </font></Label>
-        <Label fx:id="labelNoWin" layoutX="498.0" layoutY="67.0" />
+        <Label fx:id="labelNoWin" layoutX="271.0" layoutY="640.0">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
         <Label layoutX="433.0" layoutY="40.0" text="TicTacToe">
             <font>
                 <Font size="36.0" />
