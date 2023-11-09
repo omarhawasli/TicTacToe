@@ -17,39 +17,17 @@ public class TicTacToeController {
     private int player1 = 0;
     private int player2 = 0;
 
-
-
-
-
     public boolean win;
 
     @FXML
-    Button btn1;
-    @FXML
-    Button btn2;
-    @FXML
-    Button btn3;
-    @FXML
-    Button btn4;
-    @FXML
-    Button btn5;
-    @FXML
-    Button btn6;
-    @FXML
-    Button btn7;
-    @FXML
-    Button btn8;
-    @FXML
-    Button btn9;
+    Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9;
+
     @FXML
     Button resetBtn;
 
     @FXML
-    Label labelPlayer1;
-    @FXML
-    Label labelPlayer2;
-    @FXML
-    Label labelNoWin;
+    Label labelPlayer1,labelPlayer2,labelNoWin;
+
 
 
     public void initialize(){
@@ -74,8 +52,6 @@ public class TicTacToeController {
 
         checkWinner();
 
-
-
     }
 
     void setStyle(Button... buttons){
@@ -98,21 +74,22 @@ public class TicTacToeController {
         }
 
         if(btn1.getText() == btn4.getText() && btn4.getText() == btn7.getText() && btn1.isDisabled()){
-            setStyle(btn1,btn5,btn7);
+            setStyle(btn1,btn4,btn7);
             win = true;
         }else if(btn2.getText() == btn5.getText() && btn5.getText() == btn8.getText() && btn2.isDisabled()){
             setStyle(btn2,btn5,btn8);
             win = true;
+
         } else if (btn3.getText() == btn6.getText() && btn6.getText() == btn9.getText() && btn3.isDisabled()) {
             setStyle(btn3,btn6,btn9);
             win = true;
         }
 
         if(btn1.getText() == btn5.getText() && btn5.getText() == btn9.getText() && btn1.isDisabled()){
-            setStyle(btn1,btn5,btn7);
+            setStyle(btn1,btn5,btn9);
             win = true;
         }else if(btn3.getText() == btn5.getText() && btn5.getText() == btn9.getText() && btn3.isDisabled()){
-            setStyle(btn2,btn5,btn8);
+            setStyle(btn2,btn5,btn9);
             win = true;
         }
 
@@ -136,8 +113,6 @@ public class TicTacToeController {
                 labelPlayer2.setText("Winner is " + winner + " , Score is " + player2 + "" );
 
             }
-
-
 
         }else{
             if (count == 9){
