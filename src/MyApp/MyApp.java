@@ -35,24 +35,24 @@ public class MyApp extends Application {
         }
 
 
-        primaryStage.setTitle("Snake");
+        primaryStage.setTitle("TicTacToe");
         primaryStage.setWidth(1024);
         primaryStage.setHeight(768);
         primaryStage.setResizable(false);
 
-//        setIcon();
+        setIcon();
         initRootLayout();
         loadView("TicTacToeView");
 
         primaryStage.show();
     }
 
-//    void setIcon(){
-//        InputStream iconStream = getClass().getResourceAsStream("/images/snake.png");
-//        Image image = new Image(iconStream);
-//        primaryStage.getIcons().add(image);
-//
-//    }
+    void setIcon(){
+        InputStream iconStream = getClass().getResourceAsStream("/images/tictactoe.png");
+        Image image = new Image(iconStream);
+        primaryStage.getIcons().add(image);
+
+    }
 
     public void initRootLayout(){
         try{
