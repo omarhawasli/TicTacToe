@@ -10,7 +10,8 @@ import javafx.scene.text.Font;
 
 public class TicTacToeController {
 
-    boolean turn, win;
+    boolean turn;
+    boolean win;
     private int count = 0 , player1 = 0 , player2 = 0;
 
     @FXML
@@ -40,8 +41,9 @@ public class TicTacToeController {
         button.setStyle("-fx-opacity: 1");
         count++;
 
-        button.requestFocus();
         checkWinner();
+        labelNoWin.requestFocus();
+
 
     }
 
